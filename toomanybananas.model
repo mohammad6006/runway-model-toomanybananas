@@ -4,7 +4,7 @@
  * Licensed under the MIT license.
  * For full license text, see LICENSE.md file in the repo root or
  * https://opensource.org/licenses/MIT
- *test
+ * test 1
  */
 
 var bananas : 0..100 = 2;
@@ -14,7 +14,7 @@ type Person : either {
   Hungry,
   GoingToStore,
   ReturningFromStore {
-    carrying: 0..8
+    carrying: 1..8
   }
 };
 var roommates: Array<Person>[1..5];
@@ -22,11 +22,11 @@ var roommates: Array<Person>[1..5];
 rule step for state in roommates {
   match state {
     Happy {
-      state = GoingToStore;
+      state = Hungry;
     }
 
     Hungry {
-      if bananas == 0 {
+      if bananas <= 4 {
         if (notePresent) {
           // Roommate at store: try again later
         } else {
@@ -41,7 +41,7 @@ rule step for state in roommates {
 
     GoingToStore {
       state = ReturningFromStore {
-        carrying: urandomRange(0, 8)
+        carrying: urandomRange(1, 8)
       };
     }
 
