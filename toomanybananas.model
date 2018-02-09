@@ -4,10 +4,10 @@
  * Licensed under the MIT license.
  * For full license text, see LICENSE.md file in the repo root or
  * https://opensource.org/licenses/MIT
- * test 2
+ * test 3
  */
 
-var bananas : 0..100 = 2;
+var bananas : 0..100 = 4;
 var notePresent: Boolean;
 type Person : either {
   Happy,
